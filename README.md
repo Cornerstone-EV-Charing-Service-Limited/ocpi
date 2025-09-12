@@ -1,15 +1,15 @@
 ## Notes for this repository
 
-**[CST] 
+**[CST]**
 
 This repository is fork from the original OCPI github repository:
 https://github.com/ocpi/ocpi
 
 Cornerstone specific field will be added to this repo reference.
 
-If the field is cst specific, [CST] or **[CST] / [CST]** will be added to the section for identification.
+If the field is cst specific, a **[CST]** tag will be added to the section for identification.
 
-[CST]** 
+**[CST]** 
 
 
 This repository contains the OCPI specification, latest release: [`OCPI 2.2.1`](https://evroaming.org/app/uploads/2021/11/OCPI-2.2.1.pdf)
