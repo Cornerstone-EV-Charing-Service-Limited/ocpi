@@ -568,9 +568,9 @@ By decoding the data, the receiver can check if the content has not been altered
 
 
 [[mod_cdrs_cst_data_class]]
-==== CornerstoneData _class_
+==== CustomData _class_
 
-This class contains all the information of the data provided by Cornerstone.
+This class contains all the information of the data provided by CPO.
 
 [cols="4,2,1,9",options="header"]
 |===
@@ -581,13 +581,13 @@ This class contains all the information of the data provided by Cornerstone.
 |data | <<types.asciidoc#types_cistring_type,string>>(512) |? | Data Object
 |===
 
-NOTE: This data is only available when the CDR is created by Cornerstone.
+NOTE: This is not a standard field, it is only available when the CDR is created by specific CPO.
 
 
 [[mod_cdrs_cst_custom_data_type_enum]]
 ==== CustomDataType _enum_
 
-This enumeration contains allowed values for CustomDataType, which are used to define the type of the data provided by Cornerstone.
+This enumeration contains allowed values for CustomDataType, which are used to define the type of the data provided by CPO.
 
 [cols="3,10",options="header"]
 |===
@@ -599,7 +599,7 @@ This enumeration contains allowed values for CustomDataType, which are used to d
 [[mod_cdrs_cst_custom_data_format_enum]]
 ==== CustomDataType _enum_
 
-This enumeration contains allowed values for CustomDataFormat, which are used to define the format of the data from "data" field provided by Cornerstone.
+This enumeration contains allowed values for CustomDataFormat, which are used to define the format of the data from "data" field provided by CPO.
 
 [cols="3,10",options="header"]
 |===
