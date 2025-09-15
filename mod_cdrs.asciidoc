@@ -592,8 +592,8 @@ This enumeration contains allowed values for CustomDataType, which are used to d
 [cols="3,10",options="header"]
 |===
 |Value |Description
-|Receipt | Charging session receipt issued by CPO
-|Other | Other type of data
+|RECEIPT | Charging session receipt issued by CPO
+|OTHER | Other type of data
 |===
 
 [[mod_cdrs_cst_custom_data_format_enum]]
@@ -605,6 +605,6 @@ This enumeration contains allowed values for CustomDataFormat, which are used to
 |===
 |Value |Description
 |JSON | Data is presented in encoded JSON format
-|PlainText | Data is presented in plain text format
+|PLAINTEXT | Data is presented in plain text format
 |URL | Data is presented as a URL
 |===
