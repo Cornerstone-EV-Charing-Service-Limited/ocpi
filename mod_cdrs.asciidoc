@@ -592,7 +592,7 @@ This enumeration contains allowed values for CustomDataType, which are used to d
 [cols="3,10",options="header"]
 |===
 |Value |Description
-|CDRReceipt | Receipt of the CDR
+|Receipt | Charging session receipt issued by CPO
 |Other | Other type of data
 |===
 
