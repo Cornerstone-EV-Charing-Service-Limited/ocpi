@@ -1,0 +1,58 @@
+= Cornerstone OCPI Implementation Details
+
+This document outlines the specific implementation details and business logic for how Cornerstone implements the OCPI (Open Charge Point Interface) protocol.
+
+== Charging Point to EVSE and Connector Mapping
+
+In the Cornerstone implementation, all connectors are broken down into individual EVSEs. This means that each EVSE will only have a single connector.
+
+* *Mapping Strategy*: One-to-one mapping between EVSE and connector
+* *Rationale*: Simplified management and clearer identification of charging points
+
+== QR Code Storage
+
+The QR code of the connector is stored in the EVSE's `physical_reference` field.
+
+* *Location*: `evse.physical_reference`
+* *Purpose*: Provides direct access to connector identification via QR code scanning
+
+== Start Charging Command Validation
+
+In the start charging command, there is no validation against the `StartSession.token`. 
+
+* *Recommendation*: eMSP should put their user identity hash in the token
+* *Additional Field*: eMSP should include their own order reference in `authorization_reference`
+
+== Charging Session Receipt
+
+Charging session receipts are provided in CDR (Charge Detail Record) within a custom_data object.
+
+* *Location*: CDR custom_data object
+* *Content*: Session receipt information
+
+== Session Status Management
+
+When a `start_session` is received from eMSP and the request is accepted (session status becomes pending), the system will reject stop requests from eMSP until a charger response is received.
+
+* *Status Flow*: Pending → Active (after charger confirmation)
+* *Stop Request Handling*: Rejected during pending state
+
+== OCPP Status Integration
+
+An `OCPP_status` field is provided in the EVSE to indicate the OCPP status of the connector.
+
+* *Field*: `evse.OCPP_status`
+* *Purpose*: Real-time connector status from OCPP protocol
+
+== Penalty-Enabled Charging Sessions
+
+For charging sessions with penalty enabled:
+
+* *Trigger*: When charger stops charging and EVCMS receives stop transaction message
+* *Session Status*: Remains in "active" status
+* *Penalty Indicator*: A "PARKING_TIME" dimension is added to the session
+* *Purpose*: Indicates that a penalty will apply to the session
+
+== Implementation Notes
+
+This implementation provides a simplified but effective approach to OCPI compliance while maintaining compatibility with existing Cornerstone infrastructure and business requirements.
